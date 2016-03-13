@@ -13,7 +13,7 @@ namespace DataMining.Learning
     {
         private readonly ICorrelationAlgorithm _algorithm;
         private CorrelationLookup _correlationLookup;
-        private IEnumerable<BundledItem<User, Item>> _bundledItems;
+        private Dictionary<string, BundledItem<User, Item>> _bundledItems;
 
         public UserSimilarityEngine(ICorrelationAlgorithm algorithm)
         {
@@ -29,7 +29,8 @@ namespace DataMining.Learning
                                 .CrossPairwise((vector1, vector2) => _algorithm.ComputeCorrelation(vector1, vector2))
                                 .ToCorrelationLookup();
 
-            _bundledItems = data.Primary.Select(u => CreateBundledItem(u, data.Association)); 
+            _bundledItems = data.Primary.Select(u => CreateBundledItem(u, data.Association))
+                                        .ToDictionary(b => b.Item.Name); 
                 
             IsTrained = true;
         }
