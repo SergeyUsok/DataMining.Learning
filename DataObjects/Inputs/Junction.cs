@@ -35,6 +35,14 @@ namespace DataMining.Learning.DataObjects.Inputs
             _records[key].Add(record);
         }
 
+        public void AddRange(IEnumerable<JunctionRecord<TFirst, TSecond>> records)
+        {
+            foreach (var junctionRecord in records)
+            {
+                Add(junctionRecord);
+            }
+        }
+
         public IEnumerator<JunctionRecord<TFirst, TSecond>> GetEnumerator()
         {
             return _records.Values.SelectMany(en => en).GetEnumerator();

@@ -50,16 +50,20 @@ namespace DataMining.Learning.Recommendation
                                .ToList();
         }
 
-        private IEnumerable<Assessment> GetAssessments(IEnumerable<User> users, IEnumerable<Item> items)
+        private Junction<User, Item> GetAssessments(IEnumerable<User> users, IEnumerable<Item> items)
         {
             var usersMap = users.ToDictionary(user => user.Name);
             var itemsMap = items.ToDictionary(item => item.Name);
 
-            return _assessmentsSource.GetSourceEntries()
-                                     .Select(entry =>new Assessment(usersMap[entry.Property("UserName")],
-                                                                    itemsMap[entry.Property("ItemName")],
-                                                                    entry.Property<double>("Rating")))
-                                      .ToList();
+            var assessments = _assessmentsSource.GetSourceEntries()
+                                                 .Select(entry =>new Assessment(usersMap[entry.Property("UserName")],
+                                                                                itemsMap[entry.Property("ItemName")],
+                                                                                entry.Property<double>("Rating")));
+
+            var junction = new Junction<User, Item>(u => u.Name);
+            junction.AddRange(assessments);
+
+            return junction;
         }
     }
 }

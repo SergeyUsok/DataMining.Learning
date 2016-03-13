@@ -45,7 +45,8 @@
     <Compile Include="Algorithms\Similarity\ICorrelationAlgorithm.cs" />
     <Compile Include="Algorithms\Similarity\MinkowskiDistance.cs" />
     <Compile Include="Algorithms\Similarity\Similarity.cs" />
-    <Compile Include="DataObjects\Core\CorrelationMatrix.cs" />
+    <Compile Include="DataObjects\Core\BundledItem.cs" />
+    <Compile Include="DataObjects\Core\CorrelationLookup.cs" />
     <Compile Include="DataObjects\Inputs\Junction.cs" />
     <Compile Include="ISimilarityEngine.cs" />
     <Compile Include="Mathematics\AlgebraicExtensions.cs" />
