@@ -1,0 +1,5 @@
+C:\Users\Сергей\Documents\Visual Studio 2012\Projects\DataMining.Learning\DataMining.Learning\bin\Debug\DataMining.Learning.dll
+C:\Users\Сергей\Documents\Visual Studio 2012\Projects\DataMining.Learning\DataMining.Learning\bin\Debug\DataMining.Learning.pdb
+C:\Users\Сергей\Documents\Visual Studio 2012\Projects\DataMining.Learning\DataMining.Learning\obj\Debug\DataMining.Learning.dll
+C:\Users\Сергей\Documents\Visual Studio 2012\Projects\DataMining.Learning\DataMining.Learning\obj\Debug\DataMining.Learning.pdb
+C:\Users\Сергей\Documents\Visual Studio 2012\Projects\DataMining.Learning\DataMining.Learning\obj\Debug\DataMining.Learning.csprojResolveAssemblyReference.cache

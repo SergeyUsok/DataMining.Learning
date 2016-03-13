@@ -39,17 +39,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAlgorithm.cs" />
-    <Compile Include="IInputData.cs" />
-    <Compile Include="IInputDataProvider.cs" />
+    <Compile Include="Algorithms\Similarity\Correlation.cs" />
+    <Compile Include="Algorithms\Similarity\CosineSimilarity.cs" />
+    <Compile Include="Algorithms\Similarity\Distance.cs" />
+    <Compile Include="Algorithms\Similarity\ICorrelationAlgorithm.cs" />
+    <Compile Include="Algorithms\Similarity\MinkowskiDistance.cs" />
+    <Compile Include="Algorithms\Similarity\Similarity.cs" />
+    <Compile Include="DataObjects\Core\CorrelationMatrix.cs" />
+    <Compile Include="DataObjects\Inputs\Junction.cs" />
+    <Compile Include="ISimilarityEngine.cs" />
+    <Compile Include="Mathematics\AlgebraicExtensions.cs" />
+    <Compile Include="DataObjects\Core\NamedValue.cs" />
+    <Compile Include="DataObjects\Core\NamedVector.cs" />
+    <Compile Include="DataObjects\Core\SourceEntry.cs" />
+    <Compile Include="DataObjects\Inputs\IRelationSchema.cs" />
+    <Compile Include="DataObjects\Inputs\JunctionRecord.cs" />
+    <Compile Include="Recommendation\Assessment.cs" />
+    <Compile Include="DataObjects\Inputs\Item.cs" />
+    <Compile Include="DataObjects\Inputs\User.cs" />
+    <Compile Include="DataSources\DelimitedFileDataSource.cs" />
+    <Compile Include="Exceptions\PropertyMissingException.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="DataSources\IDataSource.cs" />
+    <Compile Include="Interfaces\IInputDataProvider.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="PivotTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recommender.cs" />
+    <Compile Include="Recommendation\Recommender.cs" />
+    <Compile Include="Recommendation\UserAssessmentData.cs" />
+    <Compile Include="Recommendation\UserAssessmentDataProvider.cs" />
+    <Compile Include="UserSimilarityEngine.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EngineInterfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
