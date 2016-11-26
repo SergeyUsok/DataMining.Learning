@@ -1,6 +1,6 @@
 ﻿using DataMining.Learning.DataObjects.Core;
 
-namespace DataMining.Learning.Algorithms.Similarity
+namespace DataMining.Learning.Algorithms.UserBasedSimilarity
 {
     public interface ICorrelationAlgorithm
     {

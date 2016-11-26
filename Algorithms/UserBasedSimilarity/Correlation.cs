@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataMining.Learning.Algorithms.Similarity
+namespace DataMining.Learning.Algorithms.UserBasedSimilarity
 {
     public abstract class Correlation : IComparable<Correlation>, IEquatable<Correlation>
     {

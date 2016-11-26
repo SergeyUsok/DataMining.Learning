@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataMining.Learning.Algorithms.Similarity;
+using DataMining.Learning.Algorithms.UserBasedSimilarity;
 
 namespace DataMining.Learning.DataObjects.Core
 {
     internal class CorrelationLookup
     {
-        private readonly Dictionary<string, List<Correlation>> _correlationsLookup;
+        private readonly Dictionary<string, List<string>> _correlationsLookup;
 
-        private CorrelationLookup(Dictionary<string, List<Correlation>> correlationsLookup)
+        private CorrelationLookup(Dictionary<string, List<string>> correlationsLookup)
         {
             _correlationsLookup = correlationsLookup;
         }
@@ -21,12 +21,16 @@ namespace DataMining.Learning.DataObjects.Core
                                                         new {Key = corr.Second, Correlation = corr}
                                                     })
                                  .GroupBy(item => item.Key, item => item.Correlation)
-                                 .ToDictionary(group => group.Key, group => group.OrderByDescending(corr => corr).ToList());
+                                 .ToDictionary(group => group.Key, group => group.OrderByDescending(corr => corr)
+                                                                                 .Select(cor => group.Key == cor.First
+                                                                                                    ? cor.Second
+                                                                                                    : cor.First)
+                                                                                 .ToList());
 
             return new CorrelationLookup(lookup);
         }
 
-        public IReadOnlyCollection<Correlation> GetOrderedCorrelations(string key)
+        public IReadOnlyCollection<string> GetOrderedBySimilarity(string key)
         {
             return _correlationsLookup[key].AsReadOnly();
         }

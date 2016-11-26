@@ -3,7 +3,7 @@ using System.Linq;
 using DataMining.Learning.DataObjects.Core;
 using DataMining.Learning.Mathematics;
 
-namespace DataMining.Learning.Algorithms.Similarity
+namespace DataMining.Learning.Algorithms.UserBasedSimilarity
 {
     public class MinkowskiDistance : ICorrelationAlgorithm
     {

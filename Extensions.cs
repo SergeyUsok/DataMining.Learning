@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataMining.Learning.Algorithms.Similarity;
+using DataMining.Learning.Algorithms.UserBasedSimilarity;
 using DataMining.Learning.DataObjects.Core;
 
 namespace DataMining.Learning
@@ -46,6 +46,33 @@ namespace DataMining.Learning
             if (resultSelector == null) throw new ArgumentNullException("resultSelector");
 
             return PairwiseImpl(source, resultSelector);
+        }
+
+        internal static Matrix<double> ToMatrix(this IEnumerable<Similarity> similarities)
+        {
+            var matrix = new Matrix<double>();
+
+            foreach (var similarity in similarities)
+            {
+                matrix[similarity.First, similarity.Second] = similarity.Value;
+            }
+
+            return matrix;
+        }
+
+        internal static Matrix<TResult> ToMatrix<TSource, TResult>(this IEnumerable<TSource> source, 
+                                                                       Func<TSource, string> rowSelector, 
+                                                                       Func<TSource, string> columnSelector,
+                                                                       Func<TSource, TResult> resultSelector)
+        {
+            var matrix = new Matrix<TResult>();
+
+            foreach (var item in source)
+            {
+                matrix[rowSelector(item), columnSelector(item)] = resultSelector(item);
+            }
+
+            return matrix;
         }
 
         internal static CorrelationLookup ToCorrelationLookup(this IEnumerable<Correlation> correlations)

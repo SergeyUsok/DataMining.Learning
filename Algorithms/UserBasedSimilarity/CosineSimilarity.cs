@@ -1,10 +1,8 @@
 ﻿using System.Linq;
 using DataMining.Learning.DataObjects.Core;
-using DataMining.Learning.Interfaces;
 using DataMining.Learning.Mathematics;
-using DataMining.Learning.Recommendation;
 
-namespace DataMining.Learning.Algorithms.Similarity
+namespace DataMining.Learning.Algorithms.UserBasedSimilarity
 {
     public class CosineSimilarity : ICorrelationAlgorithm
     {

@@ -4,7 +4,7 @@ using DataMining.Learning.DataObjects.Inputs;
 
 namespace DataMining.Learning.Recommendation
 {
-    public class UserAssessmentData : IRelationSchema<User, Item>
+    public class UserAssessmentData : IUserItemRelation
     {
         public UserAssessmentData(IEnumerable<User> users, IEnumerable<Item> items, Junction<User, Item> assessments)
         {

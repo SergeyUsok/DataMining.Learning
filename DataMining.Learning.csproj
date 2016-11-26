@@ -39,16 +39,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Similarity\Correlation.cs" />
-    <Compile Include="Algorithms\Similarity\CosineSimilarity.cs" />
-    <Compile Include="Algorithms\Similarity\Distance.cs" />
-    <Compile Include="Algorithms\Similarity\ICorrelationAlgorithm.cs" />
-    <Compile Include="Algorithms\Similarity\MinkowskiDistance.cs" />
-    <Compile Include="Algorithms\Similarity\Similarity.cs" />
+    <Compile Include="Algorithms\ItemBasedSimilarity\AdjustedCosineSimilarity.cs" />
+    <Compile Include="Algorithms\ItemBasedSimilarity\IItemBasedSimilarity.cs" />
+    <Compile Include="Algorithms\Normalization\Normalizer.cs" />
+    <Compile Include="Algorithms\Normalization\Range.cs" />
+    <Compile Include="Algorithms\Predictors\AssessmentPredictor.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\Correlation.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\CosineSimilarity.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\Distance.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\ICorrelationAlgorithm.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\MinkowskiDistance.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\PearsonCorrelation.cs" />
+    <Compile Include="Algorithms\UserBasedSimilarity\Similarity.cs" />
     <Compile Include="DataObjects\Core\BundledItem.cs" />
     <Compile Include="DataObjects\Core\CorrelationLookup.cs" />
+    <Compile Include="DataObjects\Core\Matrix.cs" />
+    <Compile Include="DataObjects\Inputs\IUserItemRelation.cs" />
     <Compile Include="DataObjects\Inputs\Junction.cs" />
-    <Compile Include="ISimilarityEngine.cs" />
+    <Compile Include="DataObjects\IPredictedResult.cs" />
+    <Compile Include="DataObjects\SimilarityResult.cs" />
+    <Compile Include="Recommendation\ISimilarityEngine.cs" />
     <Compile Include="Mathematics\AlgebraicExtensions.cs" />
     <Compile Include="DataObjects\Core\NamedValue.cs" />
     <Compile Include="DataObjects\Core\NamedVector.cs" />
@@ -63,13 +73,13 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="DataSources\IDataSource.cs" />
     <Compile Include="Interfaces\IInputDataProvider.cs" />
-    <Compile Include="Model.cs" />
-    <Compile Include="PivotTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recommendation\ItemSimilarityEngine.cs" />
     <Compile Include="Recommendation\Recommender.cs" />
     <Compile Include="Recommendation\UserAssessmentData.cs" />
     <Compile Include="Recommendation\UserAssessmentDataProvider.cs" />
-    <Compile Include="UserSimilarityEngine.cs" />
+    <Compile Include="Recommendation\UserSimilarityEngine.cs" />
+    <Compile Include="Recommendation\WeightedSlopeOneEngine.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
